@@ -1,0 +1,30 @@
+{
+  "name": "gen-art-with-math-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "fmt": "prettier --write stories/*.ts",
+    "dev": "start-storybook -p 6006",
+    "build": "build-storybook -c .storybook -o docs"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "p5": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@storybook/addons": "^6.4.20",
+    "@storybook/html": "^6.4.20",
+    "@storybook/theming": "^6.4.20",
+    "@types/dat.gui": "^0.7.7",
+    "@types/p5": "^1.4.2",
+    "babel-loader": "^8.2.4",
+    "prettier": "^2.6.1"
+  }
+}
