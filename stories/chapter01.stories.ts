@@ -1,21 +1,14 @@
 import p5 from 'p5';
 import dat from 'dat.gui';
-export default { title: 'chapter1' };
-
-declare let globalP5Instance: p5;
-declare let gui: dat.GUI;
-
-const _guiReset = () => {
-  gui.destroy();
-  gui = null;
-};
+import { guiReset } from '../src/common';
+export default { title: 'chapter01' };
 
 /**
  * aとbに対してユークリッド互除法を行う
  */
 export const numeric = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
@@ -67,7 +60,7 @@ export const numeric = () => {
  */
 export const divRect = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
@@ -118,7 +111,7 @@ export const divRect = () => {
  */
 export const divRectColor = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
@@ -175,7 +168,7 @@ export const divRectColor = () => {
  */
 export const divSquare = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
@@ -227,7 +220,7 @@ export const divSquare = () => {
  */
 export const rectDivRect = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     const numA = 10;
@@ -301,7 +294,7 @@ export const rectDivRect = () => {
  */
 export const recurDivSquare = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     let numA = 10;
@@ -397,7 +390,7 @@ export const recurDivSquare = () => {
  */
 export const recurDivSquareGUI = () => {
   if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) _guiReset();
+  if (!!gui) guiReset();
 
   globalP5Instance = new p5((p: p5) => {
     const controls = {
