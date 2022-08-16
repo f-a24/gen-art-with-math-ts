@@ -1,20 +1,17 @@
 import p5 from 'p5';
 import dat from 'dat.gui';
-import { guiReset } from '../src/common';
+import { init } from '../src/common';
 export default { title: 'chapter01' };
 
 /**
  * aとbに対してユークリッド互除法を行う
  */
 export const numeric = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('ユークリッド互除法の計算を行う');
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
-      p.createCanvas(1000, 300);
-      p.textSize(24);
-      p.text('ユークリッド互除法を行う', 10, 30);
+      p.createCanvas(850, 170);
 
       // 課題
       const exercise = [
@@ -34,7 +31,7 @@ export const numeric = () => {
         let itr = 0; // 繰り返しの回数
 
         p.textSize(20);
-        p.text(`a = ${a}, b = ${b}`, i * 170, 70);
+        p.text(`a = ${a}, b = ${b}`, i * 170, 30);
         p.textSize(16);
 
         // 繰り返し処理
@@ -43,12 +40,12 @@ export const numeric = () => {
           itr++; // 繰り返し回数を1増やす
           c = (a / b) | 0; // cに商を代入
           d = a % b; // dに余りを代入
-          p.text(`${itr} : ${a} / ${b} = ${c}...${d}`, i * 170, itr * 30 + 70); // 計算結果を表示
+          p.text(`${itr} : ${a} / ${b} = ${c}...${d}`, i * 170, itr * 30 + 30); // 計算結果を表示
           a = b; // aにbを代入
           b = d; // bに余りを代入
         }
         p.textSize(20);
-        p.text(`GCD is ${a}`, i * 170, (itr + 1) * 30 + 70); // 最大公約数を表示
+        p.text(`GCD is ${a}`, i * 170, (itr + 1) * 30 + 30); // 最大公約数を表示
       });
     };
   });
@@ -59,14 +56,11 @@ export const numeric = () => {
  * 長方形の分割によるユークリッド互除法の可視化
  */
 export const divRect = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('長方形の分割によるユークリッド互除法の可視化');
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
-      p.createCanvas(550, 400);
-      p.textSize(24);
-      p.text('長方形の分割によるユークリッド互除法の可視化', 10, 30);
+      p.createCanvas(500, 500);
 
       // 横縦比がnumA:numBの長方形を正方形によって分割
       const scalar = 50; // 長方形の拡大倍率
@@ -87,7 +81,7 @@ export const divRect = () => {
           // 繰り返し回数が奇数のとき，x軸方向へ正方形を増やす
           while (xPos + wd <= numA) {
             // 幅を足したとき，長方形を超えなければ以下を実行
-            p.rect(xPos, yPos + 50, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
+            p.rect(xPos, yPos, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
             xPos += wd; // x位置を更新
           }
           wd = numA - xPos; // 幅を更新
@@ -95,7 +89,7 @@ export const divRect = () => {
           // 繰り返し回数が偶数のとき，y軸方向へ正方形を加える
           while (yPos + wd <= numB) {
             // 幅を足したとき，長方形を超えなければ以下を実行
-            p.rect(xPos, yPos + 50, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
+            p.rect(xPos, yPos, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
             yPos += wd; // y位置を更新
           }
           wd = numB - yPos; // 幅を更新
@@ -107,17 +101,14 @@ export const divRect = () => {
 };
 
 /**
- * 長方形に色を付ける
+ * divRectを着彩したもの
  */
 export const divRectColor = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('Div Rectを着彩したもの');
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
-      p.createCanvas(550, 400);
-      p.textSize(24);
-      p.text('長方形の分割によるユークリッド互除法の可視化', 10, 30);
+      p.createCanvas(500, 500);
 
       // 横縦比がnumA:numBの長方形を正方形によって分割
       const scalar = 50; // 長方形の拡大倍率
@@ -142,7 +133,7 @@ export const divRectColor = () => {
             // 幅を足したとき，長方形を超えなければ以下を実行
             col = p.color(p.random(1), 1, 1); // 色相のみを01区間でランダムに変える
             p.fill(col);
-            p.rect(xPos, yPos + 50, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
+            p.rect(xPos, yPos, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
             xPos += wd; // x位置を更新
           }
           wd = numA - xPos; // 幅を更新
@@ -152,7 +143,7 @@ export const divRectColor = () => {
             // 幅を足したとき，長方形を超えなければ以下を実行
             col = p.color(p.random(1), 1, 1);
             p.fill(col);
-            p.rect(xPos, yPos + 50, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
+            p.rect(xPos, yPos, wd, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
             yPos += wd; // y位置を更新
           }
           wd = numB - yPos; // 幅を更新
@@ -164,18 +155,15 @@ export const divRectColor = () => {
 };
 
 /**
- * 長方形による正方形の分割
+ * 正方形の分割によるユークリッド互除法の可視化
  */
 export const divSquare = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('長方形による正方形の分割');
 
   globalP5Instance = new p5((p: p5) => {
     p.setup = () => {
-      p.createCanvas(550, 600);
+      p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      p.textSize(24);
-      p.text('長方形による正方形の分割', 10, 30);
 
       // 縦横比がnumA:numBの長方形によって正方形の描画ウィンドウを分割
       const numA = 16;
@@ -195,7 +183,7 @@ export const divSquare = () => {
           while (xPos + wd * ratio < p.width + 0.1) {
             // 幅を足したとき，横幅がウィンドウを超えなければ以下の処理を実行
             p.fill(p.color(p.random(1), 1, 1));
-            p.rect(xPos, yPos + 50, wd * ratio, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
+            p.rect(xPos, yPos, wd * ratio, wd); // (xPos, yPos)を左上の頂点とする1辺wdの正方形を描画
             xPos += wd * ratio; // x位置を更新
           }
           wd = p.width - xPos;
@@ -204,7 +192,7 @@ export const divSquare = () => {
           while (yPos + wd / ratio < p.width + 0.1) {
             // 幅を足したとき，縦幅がウィンドウを超えなければ以下の処理を実行
             p.fill(p.color(p.random(1), 1, 1));
-            p.rect(xPos, yPos + 50, wd, wd / ratio); // 横幅wd，縦横比がnumA:numBの長方形
+            p.rect(xPos, yPos, wd, wd / ratio); // 横幅wd，縦横比がnumA:numBの長方形
             yPos += wd / ratio; // y位置を更新
           }
           wd = p.width - yPos; // 幅を更新
@@ -219,8 +207,7 @@ export const divSquare = () => {
  * 長方形の長方形による分割
  */
 export const rectDivRect = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('長方形の長方形による分割');
 
   globalP5Instance = new p5((p: p5) => {
     const numA = 10;
@@ -242,14 +229,14 @@ export const rectDivRect = () => {
           while (xPos + wd * ratio < xEndPos + 0.1) {
             //ratioはグローバル変数
             p.fill(p.color(p.random(1), 1, 1));
-            p.rect(xPos, yPos + 50, wd * ratio, wd);
+            p.rect(xPos, yPos, wd * ratio, wd);
             xPos += wd * ratio;
           }
           wd = xEndPos - xPos;
         } else {
           while (yPos + wd / ratio < yEndPos + 0.1) {
             p.fill(p.color(p.random(1), 1, 1));
-            p.rect(xPos, yPos + 50, wd, wd / ratio);
+            p.rect(xPos, yPos, wd, wd / ratio);
             yPos += wd / ratio;
           }
           wd = yEndPos - yPos;
@@ -258,10 +245,8 @@ export const rectDivRect = () => {
     };
 
     p.setup = () => {
-      p.createCanvas(1000, 650);
+      p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      p.textSize(24);
-      p.text('長方形の長方形による分割', 10, 30);
 
       let itr = 0;
       let xPos = 0;
@@ -293,8 +278,7 @@ export const rectDivRect = () => {
  * 正方形の再帰的な分割
  */
 export const recurDivSquare = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('正方形の再帰的な分割');
 
   globalP5Instance = new p5((p: p5) => {
     let numA = 10;
@@ -359,11 +343,9 @@ export const recurDivSquare = () => {
     };
 
     p.setup = () => {
-      p.createCanvas(550, 600);
-      p.textSize(24);
-      p.text('正方形の再帰的な分割', 10, 30);
+      p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      _divSquare(0, 50, p.width); //正方形の分割
+      _divSquare(0, 0, p.width); //正方形の分割
     };
 
     p.mouseClicked = () => {
@@ -378,19 +360,17 @@ export const recurDivSquare = () => {
       ratio = numA / numB;
       p.background(0, 0, 1); //背景を白で消去
       p.fill(0, 0, 0);
-      p.text('正方形の再帰的な分割', 10, 30);
-      _divSquare(0, 50, p.width);
+      _divSquare(0, 0, p.width);
     };
   });
   return '';
 };
 
 /**
- * 長方形に色を付ける
+ * recurDivSquareのGUIプログラム
  */
 export const recurDivSquareGUI = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('Recur Div SquareのGUIプログラム');
 
   globalP5Instance = new p5((p: p5) => {
     const controls = {
@@ -480,9 +460,7 @@ export const recurDivSquareGUI = () => {
     };
 
     p.setup = () => {
-      p.createCanvas(550, 400);
-      p.textSize(24);
-      p.text('長方形の分割によるユークリッド互除法の可視化', 10, 30);
+      p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
       _controller();
     };

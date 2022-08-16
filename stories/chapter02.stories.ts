@@ -1,22 +1,19 @@
 import p5 from 'p5';
 import dat from 'dat.gui';
-import { guiReset } from '../src/common';
+import { init } from '../src/common';
 export default { title: 'chapter02' };
 export { divRect, divSquare, recurDivSquare } from './chapter01.stories';
 
 /**
- * DivRectによる分割の細部を拡大表示する
+ * divRectによる分割の細部を拡大表示する
  */
 export const divRectZoom = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('Div Rectによる分割の細部を拡大表示する');
 
   globalP5Instance = new p5((p: p5) => {
     const ratio = p.sqrt(2);
     p.setup = () => {
-      p.createCanvas(550, 400);
-      // p.textSize(24);
-      // p.text('長方形の分割によるユークリッド互除法の可視化', 10, 30);
+      p.createCanvas(500, 353);
       p.colorMode(p.HSB, 1);
     };
     p.draw = () => {
@@ -55,15 +52,14 @@ export const divRectZoom = () => {
  * 黄金分割を使ってモンドリアンもどきの絵を描く
  */
 export const mondrian = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('モンドリアンもどきの生成');
 
   globalP5Instance = new p5((p: p5) => {
     const ratio = (p.sqrt(5) + 1) / 2; //黄金数
     let thr = 80; //分割する大きさに関するしきい値
     let thr2 = 0.5; //確率を決定するしきい値
     p.setup = () => {
-      p.createCanvas(550, 400);
+      p.createCanvas(500, 500);
       p.textSize(24);
       p.text('長方形の分割によるユークリッド互除法の可視化', 10, 30);
       p.colorMode(p.HSB, 1);
@@ -158,8 +154,7 @@ export const mondrian = () => {
  * 再起的な黄金分割のGUIプログラム
  */
 export const goldDivGUI = () => {
-  if (!!globalP5Instance) globalP5Instance.remove();
-  if (!!gui) guiReset();
+  init('再起的な黄金分割のGUIプログラム');
 
   globalP5Instance = new p5((p: p5) => {
     let ratio: number;

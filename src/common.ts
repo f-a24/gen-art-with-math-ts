@@ -1,5 +1,10 @@
-export const guiReset = () => {
-  if (!gui) return;
-  gui.destroy();
-  gui = null;
+export const init = (title: string) => {
+  const titleEl = document.querySelector('#title')!;
+  titleEl.textContent = title;
+
+  if (!!globalP5Instance) globalP5Instance.remove();
+  if (gui) {
+    gui.destroy();
+    gui = null;
+  }
 };
