@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import dat from 'dat.gui';
+import { GUI } from 'lil-gui';
 import { init } from '../src/common';
 
 /**
@@ -310,7 +310,7 @@ export const recurDivGUI = () => {
       thr: 0
     };
     const _controller = () => {
-      gui = new dat.GUI();
+      gui = new GUI();
       gui.add(controls, 'num', 1, 20);
       gui.add(controls, 'thr', 0, 9);
     };

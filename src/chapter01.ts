@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import dat from 'dat.gui';
+import { GUI } from 'lil-gui';
 import { init } from './common';
 
 /**
@@ -451,7 +451,7 @@ export const recurDivSquareGUI = () => {
     };
 
     const _controller = () => {
-      gui = new dat.GUI();
+      gui = new GUI();
       gui.add(controls, 'numA', 1, 40, 1);
       gui.add(controls, 'numB', 1, 40, 1);
       gui.add(controls, 'thr', 10, 300, 30);

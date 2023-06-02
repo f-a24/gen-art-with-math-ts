@@ -1,9 +1,9 @@
-import p5 from 'p5';
-import dat from 'dat.gui';
+import type p5 from 'p5';
+import type { GUI } from 'lil-gui';
 
 export default {};
 
 declare global {
   let globalP5Instance: p5;
-  let gui: dat.GUI | null;
+  let gui: GUI | null;
 }

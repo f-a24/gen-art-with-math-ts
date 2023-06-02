@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import dat from 'dat.gui';
+import { GUI } from 'lil-gui';
 import { init } from '../src/common';
 
 /**
@@ -172,7 +172,7 @@ export const goldDivGUI = () => {
     };
 
     const _controller = () => {
-      gui = new dat.GUI();
+      gui = new GUI();
       gui.add(controls, 'thr', 10, 300, 30);
       gui.add(controls, 'thr2', 0, 1);
       gui.add(controls, 'changeCol');
