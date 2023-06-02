@@ -349,13 +349,13 @@ export const recurDivSquare = () => {
     };
 
     p.mouseClicked = () => {
-      numA = Math.floor(p.random(1, 20)); //1以上20以下のランダムな整数を代入
-      numB = Math.floor(p.random(1, 20));
+      numA = Math.trunc(p.random(1, 20)); //1以上20以下のランダムな整数を代入
+      numB = Math.trunc(p.random(1, 20));
       while (numA === numB) {
         //numAとnumBが異なるようにする
-        numB = Math.floor(p.random(1, 20));
+        numB = Math.trunc(p.random(1, 20));
       }
-      thr = Math.floor(p.random(10, 300));
+      thr = Math.trunc(p.random(10, 300));
       console.log('numA =', numA, 'numB =', numB, 'thr =', thr); //numA,numB,thrの値を表示
       ratio = numA / numB;
       p.background(0, 0, 1); //背景を白で消去
