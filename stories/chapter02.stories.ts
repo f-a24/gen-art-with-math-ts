@@ -1,7 +1,7 @@
 import { divRect, divSquare, recurDivSquare } from '../src/chapter01';
 import { divRectZoom, mondrian, goldDivGUI } from '../src/chapter02';
 
-export default { title: 'Chapter02' };
+export default { title: 'Chapter02：連分数' };
 
 export const DivRect = {
   render: divRect

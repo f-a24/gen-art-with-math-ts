@@ -9,7 +9,7 @@ import {
 } from '../src/chapter01';
 
 export default {
-  title: 'Chapter01'
+  title: 'Chapter01：ユークリッド互除法'
 };
 
 export const Numeric = {

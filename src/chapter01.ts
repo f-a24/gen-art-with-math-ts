@@ -217,16 +217,16 @@ export const rectDivRect = () => {
      * 位置(xPos,yPos)にある1辺がwdの正方形を縦横比がnumA:numBの長方形で分割する
      */
     const _divSquare = (xPos: number, yPos: number, wd: number) => {
-      //この関数内だけのローカル変数
+      // この関数内だけのローカル変数
       let itr = 0;
-      const xEndPos = wd + xPos; //正方形の右下の頂点のx座標
-      const yEndPos = wd + yPos; //正方形の右下の頂点のy座標
-      //繰り返し処理
+      const xEndPos = wd + xPos; // 正方形の右下の頂点のx座標
+      const yEndPos = wd + yPos; // 正方形の右下の頂点のy座標
+      // 繰り返し処理
       while (wd > 0.1) {
         itr++;
         if (itr % 2 == 1) {
           while (xPos + wd * ratio < xEndPos + 0.1) {
-            //ratioはグローバル変数
+            // ratioはグローバル変数
             p.fill(p.color(p.random(1), 1, 1));
             p.rect(xPos, yPos, wd * ratio, wd);
             xPos += wd * ratio;
@@ -299,13 +299,13 @@ export const recurDivSquare = () => {
         itr++;
         if (itr % 2 == 0) {
           while (xPos + wd < xEndPos + 0.1) {
-            _divSquare(xPos, yPos, wd); //正方形を分割する関数の呼び出し
+            _divSquare(xPos, yPos, wd); // 正方形を分割する関数の呼び出し
             xPos += wd;
           }
           wd = xEndPos - xPos;
         } else {
           while (yPos + wd < yEndPos + 0.1) {
-            _divSquare(xPos, yPos, wd); //正方形を分割する関数の呼び出し
+            _divSquare(xPos, yPos, wd); // 正方形を分割する関数の呼び出し
             yPos += wd;
           }
           wd = yEndPos - yPos;
@@ -323,17 +323,17 @@ export const recurDivSquare = () => {
       p.fill(p.color(p.random(1), 1, 1));
       p.rect(xPos, yPos, wd, wd);
       while (wd > thr) {
-        //wdがしきい値以上の場合に処理を行う
+        // wdがしきい値以上の場合に処理を行う
         itr++;
         if (itr % 2 == 1) {
           while (xPos + wd * ratio < xEndPos + 0.1) {
-            _divRect(xPos, yPos, wd * ratio); //長方形を分割する関数の呼び出し
+            _divRect(xPos, yPos, wd * ratio); // 長方形を分割する関数の呼び出し
             xPos += wd * ratio;
           }
           wd = xEndPos - xPos;
         } else {
           while (yPos + wd / ratio < yEndPos + 0.1) {
-            _divRect(xPos, yPos, wd); //長方形を分割する関数の呼び出し
+            _divRect(xPos, yPos, wd); // 長方形を分割する関数の呼び出し
             yPos += wd / ratio;
           }
           wd = yEndPos - yPos;
@@ -344,20 +344,20 @@ export const recurDivSquare = () => {
     p.setup = () => {
       p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      _divSquare(0, 0, p.width); //正方形の分割
+      _divSquare(0, 0, p.width); // 正方形の分割
     };
 
     p.mouseClicked = () => {
-      numA = Math.trunc(p.random(1, 20)); //1以上20以下のランダムな整数を代入
+      numA = Math.trunc(p.random(1, 20)); // 1以上20以下のランダムな整数を代入
       numB = Math.trunc(p.random(1, 20));
       while (numA === numB) {
-        //numAとnumBが異なるようにする
+        // numAとnumBが異なるようにする
         numB = Math.trunc(p.random(1, 20));
       }
       thr = Math.trunc(p.random(10, 300));
-      console.log('numA =', numA, 'numB =', numB, 'thr =', thr); //numA,numB,thrの値を表示
+      console.log('numA =', numA, 'numB =', numB, 'thr =', thr); // numA,numB,thrの値を表示
       ratio = numA / numB;
-      p.background(0, 0, 1); //背景を白で消去
+      p.background(0, 0, 1); // 背景を白で消去
       p.fill(0, 0, 0);
       _divSquare(0, 0, p.width);
     };
@@ -383,7 +383,7 @@ export const recurDivSquareGUI = () => {
       }
     };
     let ratio = controls.numA / controls.numB;
-    let rand = [0]; //ランダムな数値を格納する配列
+    let rand = [0]; // ランダムな数値を格納する配列
     let count = 0;
 
     const _setColor = () => {
@@ -408,13 +408,13 @@ export const recurDivSquareGUI = () => {
         itr++;
         if (itr % 2 == 0) {
           while (xPos + wd < xEndPos + 0.1) {
-            _divSquare(xPos, yPos, wd); //正方形を分割する関数の呼び出し
+            _divSquare(xPos, yPos, wd); // 正方形を分割する関数の呼び出し
             xPos += wd;
           }
           wd = xEndPos - xPos;
         } else {
           while (yPos + wd < yEndPos + 0.1) {
-            _divSquare(xPos, yPos, wd); //正方形を分割する関数の呼び出し
+            _divSquare(xPos, yPos, wd); // 正方形を分割する関数の呼び出し
             yPos += wd;
           }
           wd = yEndPos - yPos;
@@ -432,17 +432,17 @@ export const recurDivSquareGUI = () => {
       _setColor();
       p.rect(xPos, yPos, wd, wd);
       while (wd > controls.thr) {
-        //wdがしきい値以上の場合に処理を行う
+        // wdがしきい値以上の場合に処理を行う
         itr++;
         if (itr % 2 == 1) {
           while (xPos + wd * ratio < xEndPos + 0.1) {
-            _divRect(xPos, yPos, wd * ratio); //長方形を分割する関数の呼び出し
+            _divRect(xPos, yPos, wd * ratio); // 長方形を分割する関数の呼び出し
             xPos += wd * ratio;
           }
           wd = xEndPos - xPos;
         } else {
           while (yPos + wd / ratio < yEndPos + 0.1) {
-            _divRect(xPos, yPos, wd); //長方形を分割する関数の呼び出し
+            _divRect(xPos, yPos, wd); // 長方形を分割する関数の呼び出し
             yPos += wd / ratio;
           }
           wd = yEndPos - yPos;

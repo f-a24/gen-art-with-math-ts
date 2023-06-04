@@ -8,7 +8,7 @@ import {
   spiral
 } from '../src/chapter03';
 
-export default { title: 'Chapter03' };
+export default { title: 'Chapter03：フィボナッチ数列' };
 
 export const Convergent = {
   render: convergent
