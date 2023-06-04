@@ -1,4 +1,11 @@
-import { spiral, logSpiralZoom, recurSquare, recurSquareSpiral, recurPolygon, goldFiboSpiral } from '../src/chapter04';
+import {
+  spiral,
+  logSpiralZoom,
+  recurSquare,
+  recurSquareSpiral,
+  recurPolygon,
+  goldFiboSpiral
+} from '../src/chapter04';
 
 export default { title: 'Chapter04：対数らせん' };
 

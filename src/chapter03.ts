@@ -100,12 +100,7 @@ export const squareSpiral = () => {
       let yPos = 0;
       const scalar = p.width / (2 * fibo[fibo.length - 1]); // 拡大・縮小比率
       p.background(0, 0, 1);
-
-      /**
-       * ↓クリックのたびに呼び出すと正常に表示されないのでsetup()に移動して一度だけ実行
-       * p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
-       */
-
+      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       for (let i = 1; i < fibo.length - 1; i++) {
         p.fill((0.1 * i) % 1, 1, 1);
         // 正方形を描く方向を符号の配列に従って変える
@@ -127,9 +122,9 @@ export const squareSpiral = () => {
     p.setup = () => {
       p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       _drawSpiral();
     };
+    p.draw = () => {};
     p.mouseClicked = () => {
       const nextFibo = fibo[fibo.length - 2] + fibo[fibo.length - 1];
       fibo = p.append(fibo, nextFibo);
@@ -156,6 +151,7 @@ export const rect = () => {
       let yPos = 0;
       const scalar = p.width / (2 * fibo[fibo.length - 1]); // 拡大・縮小比率
       p.background(0, 0, 1);
+      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       for (let i = 1; i < fibo.length - 1; i++) {
         p.fill((0.1 * i) % 1, 1, 1);
         p.rect(
@@ -175,9 +171,9 @@ export const rect = () => {
     p.setup = () => {
       p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       _drawRect();
     };
+    p.draw = () => {};
     p.mouseClicked = () => {
       const nextFibo = fibo[fibo.length - 2] + fibo[fibo.length - 1];
       fibo = p.append(fibo, nextFibo);
@@ -407,6 +403,7 @@ export const spiral = () => {
       let yPos = 0;
       const scalar = p.width / (2 * fibo[fibo.length - 1]); // 拡大・縮小比率
       p.background(0, 0, 1);
+      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       for (let i = 1; i < fibo.length - 1; i++) {
         p.stroke(0, 0, 0);
         p.rect(
@@ -434,9 +431,9 @@ export const spiral = () => {
     p.setup = () => {
       p.createCanvas(500, 500);
       p.colorMode('hsb', 1);
-      p.translate(p.width / 2, p.height / 2); // 描画ウィンドウ中央に移動
       _drawSpiral();
     };
+    p.draw = () => {};
     p.mouseClicked = () => {
       const nextFibo = fibo[fibo.length - 2] + fibo[fibo.length - 1];
       fibo = p.append(fibo, nextFibo);
