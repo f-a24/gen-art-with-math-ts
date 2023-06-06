@@ -1,6 +1,6 @@
-import{n as N,d as b,a as E,b as O,r as j,c as k,e as w}from"./chapter01-06481f44.js";import"./common-9d5f0eb9.js";import"./_commonjsHelpers-725317a4.js";const B={title:"Chapter01"},r={render:N},e={render:b},a={render:E},s={render:O},c={render:j},o={render:k},t={render:w};var n,i,u;r.parameters={...r.parameters,docs:{...(n=r.parameters)==null?void 0:n.docs,source:{originalSource:`{
+import{n as N,d as b,a as E,b as O,r as j,c as k,e as w}from"./chapter01-fda52ca8.js";import"./common-59d4c3ce.js";import"./_commonjsHelpers-725317a4.js";import"./lil-gui.esm-fc0b5e43.js";const F={title:"Chapter01：ユークリッド互除法"},r={render:N},e={render:b},a={render:E},s={render:O},c={render:j},o={render:k},t={render:w};var i,n,u;r.parameters={...r.parameters,docs:{...(i=r.parameters)==null?void 0:i.docs,source:{originalSource:`{
   render: numeric
-}`,...(u=(i=r.parameters)==null?void 0:i.docs)==null?void 0:u.source}}};var d,m,p;e.parameters={...e.parameters,docs:{...(d=e.parameters)==null?void 0:d.docs,source:{originalSource:`{
+}`,...(u=(n=r.parameters)==null?void 0:n.docs)==null?void 0:u.source}}};var d,m,p;e.parameters={...e.parameters,docs:{...(d=e.parameters)==null?void 0:d.docs,source:{originalSource:`{
   render: divRect
 }`,...(p=(m=e.parameters)==null?void 0:m.docs)==null?void 0:p.source}}};var v,S,D;a.parameters={...a.parameters,docs:{...(v=a.parameters)==null?void 0:v.docs,source:{originalSource:`{
   render: divRectColor
@@ -12,5 +12,5 @@ import{n as N,d as b,a as E,b as O,r as j,c as k,e as w}from"./chapter01-06481f4
   render: recurDivSquare
 }`,...(_=(U=o.parameters)==null?void 0:U.docs)==null?void 0:_.source}}};var f,h,x;t.parameters={...t.parameters,docs:{...(f=t.parameters)==null?void 0:f.docs,source:{originalSource:`{
   render: recurDivSquareGUI
-}`,...(x=(h=t.parameters)==null?void 0:h.docs)==null?void 0:x.source}}};const F=["Numeric","DivRect","DivRectColor","DivSquare","RectDivRect","RecurDivSquare","RecurDivSquareGUI"];export{e as DivRect,a as DivRectColor,s as DivSquare,r as Numeric,c as RectDivRect,o as RecurDivSquare,t as RecurDivSquareGUI,F as __namedExportsOrder,B as default};
-//# sourceMappingURL=chapter01.stories-dc8daa85.js.map
+}`,...(x=(h=t.parameters)==null?void 0:h.docs)==null?void 0:x.source}}};const H=["Numeric","DivRect","DivRectColor","DivSquare","RectDivRect","RecurDivSquare","RecurDivSquareGUI"];export{e as DivRect,a as DivRectColor,s as DivSquare,r as Numeric,c as RectDivRect,o as RecurDivSquare,t as RecurDivSquareGUI,H as __namedExportsOrder,F as default};
+//# sourceMappingURL=chapter01.stories-0ce51f3e.js.map
