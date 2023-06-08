@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import { init } from './common';
+import { createMatrix, init } from './common';
 
 /**
  * パスカルの三角形（数値の書き出し）
@@ -321,20 +321,17 @@ export const cA2dim = () => {
   globalP5Instance = new p5((p: p5) => {
     const num = 250; // 行と列の長さ
     let mod = 4; // 法とする数
-    let state: number[][] = []; // セルの状態を表す行列
+    let state = createMatrix(num, num); // セルの状態を表す行列
     // 初期状態にする関数
     const _initialize = () => {
-      state = [];
       for (let i = 0; i < num; i++) {
-        const _arr: number[] = [];
         for (let j = 0; j < num; j++) {
           if (i === num / 2 && j === num / 2) {
-            _arr.push(1); // 真ん中の成分のみ1
+            state[i][j] = 1; // 真ん中の成分のみ1
           } else {
-            _arr.push(0);
+            state[i][j] = 0;
           }
         }
-        state.push(_arr);
       }
     };
     const _drawCell = () => {
@@ -354,15 +351,13 @@ export const cA2dim = () => {
     };
     // 状態を更新する関数
     const _updateState = () => {
-      const nextState: number[][] = []; // 次世代の状態
+      const nextState = createMatrix(num, num); // 次世代の状態
       for (let i = 0; i < num; i++) {
-        const _arr: number[] = [];
         for (let j = 0; j < num; j++) {
-          _arr.push(_transition(i, j)); // 遷移
+          nextState[i][j] = _transition(i, j); // 遷移
         }
-        nextState.push(_arr);
       }
-      state = structuredClone(nextState); // 更新
+      state = nextState; // 更新
     };
     // 遷移の計算をする関数
     const _transition = (i: number, j: number) => {
