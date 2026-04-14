@@ -15,14 +15,14 @@
   },
   "dependencies": {
     "lil-gui": "^0.18.1",
-    "p5": "^1.4.2"
+    "p5": "^1.9.0"
   },
   "devDependencies": {
     "@storybook/html": "^7.0.18",
     "@storybook/html-vite": "^7.0.18",
     "@storybook/manager-api": "^7.0.18",
     "@storybook/theming": "^7.0.18",
-    "@types/p5": "^1.4.2",
+    "@types/p5": "^1.7.6",
     "prettier": "^2.7.1",
     "storybook": "7.0.18",
     "vite": "^4.3.9"
